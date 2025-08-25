@@ -1,0 +1,24 @@
+[2025-08-25 13:32:50,871] INFO - Entered the data ingestion method or component
+[2025-08-25 13:32:50,934] INFO - Read the dataset as dataframe
+[2025-08-25 13:32:50,950] INFO - Train test split initiated
+[2025-08-25 13:32:50,976] INFO - Ingestion of the data is completed
+[2025-08-25 13:34:24,810] INFO - Splitting training and test input data
+[2025-08-25 13:34:36,207] INFO - Best Model Found: Logistic Regression with Accuracy: -0.6666666666666665
+[2025-08-25 14:42:31,919] INFO - This is an info log from test_logger.py // hi this is harshitha,and you?
+[2025-08-25 14:43:18,112] INFO - Starting data ingestion process.
+[2025-08-25 16:37:33,612] INFO - Entered the data ingestion method or component
+[2025-08-25 16:39:31,659] INFO - Entered the data ingestion method or component
+[2025-08-25 16:39:31,666] INFO - Read the dataset as dataframe
+[2025-08-25 16:39:31,677] INFO - Train test split initiated
+[2025-08-25 16:39:31,690] INFO - Ingestion of the data is completed
+[2025-08-25 16:42:24,029] INFO - Splitting training and test input data
+[2025-08-25 16:42:35,132] INFO - Best Model Found: Logistic Regression with Accuracy: -0.6666666666666665
+[2025-08-25 17:43:44,735] INFO - Splitting training and test input data
+[2025-08-25 17:43:44,736] INFO - Tuning and training Logistic Regression...
+[2025-08-25 17:43:44,829] INFO - Tuning and training Decision Tree...
+[2025-08-25 17:43:44,932] INFO - Tuning and training Random Forest...
+[2025-08-25 17:43:46,637] INFO - Tuning and training Gradient Boosting...
+[2025-08-25 17:43:47,731] INFO - Tuning and training SVM...
+[2025-08-25 17:43:47,832] INFO - Tuning and training XGBoost...
+[2025-08-25 17:43:48,988] INFO - Tuning and training CatBoost...
+[2025-08-25 17:43:55,903] INFO - Best Model Found: Logistic Regression with Accuracy: 0.6

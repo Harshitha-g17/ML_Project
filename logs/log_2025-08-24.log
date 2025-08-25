@@ -1,0 +1,88 @@
+[2025-08-24 18:44:00,048] INFO - Entered the data ingestion method or component
+[2025-08-24 18:44:00,084] INFO - Read the dataset as dataframe
+[2025-08-24 18:44:00,095] INFO - Train test split initiated
+[2025-08-24 18:44:00,114] INFO - Ingestion of the data is completed
+[2025-08-24 18:44:33,267] INFO - Entered the data ingestion method or component
+[2025-08-24 18:44:33,273] INFO - Read the dataset as dataframe
+[2025-08-24 18:44:33,280] INFO - Train test split initiated
+[2025-08-24 18:44:33,288] INFO - Ingestion of the data is completed
+[2025-08-24 19:24:39,063] INFO - Entered the data ingestion method or component
+[2025-08-24 19:24:39,105] INFO - Read the dataset as dataframe
+[2025-08-24 19:24:39,113] INFO - Train test split initiated
+[2025-08-24 19:24:39,122] INFO - Ingestion of the data is completed
+[2025-08-24 19:25:29,025] INFO - Entered the data ingestion method or component
+[2025-08-24 19:25:29,031] INFO - Read the dataset as dataframe
+[2025-08-24 19:25:29,037] INFO - Train test split initiated
+[2025-08-24 19:25:29,046] INFO - Ingestion of the data is completed
+[2025-08-24 19:28:39,287] INFO - Entered the data ingestion method or component
+[2025-08-24 19:28:39,318] INFO - Read the dataset as dataframe
+[2025-08-24 19:28:39,325] INFO - Train test split initiated
+[2025-08-24 19:28:39,337] INFO - Ingestion of the data is completed
+[2025-08-24 19:40:25,180] INFO - Entered the data ingestion method or component
+[2025-08-24 19:40:25,224] INFO - Read the dataset as dataframe
+[2025-08-24 19:40:25,236] INFO - Train test split initiated
+[2025-08-24 19:40:25,247] INFO - Ingestion of the data is completed
+[2025-08-24 21:49:10,965] INFO - Starting the full CLV pipeline execution.
+[2025-08-24 21:49:10,966] INFO - Loading raw data from: C:\Users\harshitha\OneDrive\Desktop\CLV_Ml_Project\data.csv
+[2025-08-24 21:49:10,967] ERROR - An unexpected error occurred during pipeline execution: [Errno 2] No such file or directory: 'C:\\Users\\harshitha\\OneDrive\\Desktop\\CLV_Ml_Project\\data.csv'
+Traceback (most recent call last):
+  File "C:\Users\harshitha\OneDrive\Desktop\CLV_Ml_Project\run.py", line 32, in <module>
+    raw_df = pd.read_csv(raw_data_path)
+  File "C:\Users\harshitha\OneDrive\Desktop\CLV_Ml_Project\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "C:\Users\harshitha\OneDrive\Desktop\CLV_Ml_Project\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "C:\Users\harshitha\OneDrive\Desktop\CLV_Ml_Project\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\harshitha\OneDrive\Desktop\CLV_Ml_Project\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ~~~~~~~~~~^
+        f,
+        ^^
+    ...<6 lines>...
+        storage_options=self.options.get("storage_options", None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\harshitha\OneDrive\Desktop\CLV_Ml_Project\.venv\Lib\site-packages\pandas\io\common.py", line 873, in get_handle
+    handle = open(
+        handle,
+    ...<3 lines>...
+        newline="",
+    )
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\harshitha\\OneDrive\\Desktop\\CLV_Ml_Project\\data.csv'
+[2025-08-24 21:52:27,967] INFO - Starting the full CLV pipeline execution.
+[2025-08-24 21:52:27,967] INFO - Loading raw data from: C:\Users\harshitha\OneDrive\Desktop\CLV_Ml_Project\data.csv
+[2025-08-24 21:52:27,969] ERROR - An unexpected error occurred during pipeline execution: [Errno 2] No such file or directory: 'C:\\Users\\harshitha\\OneDrive\\Desktop\\CLV_Ml_Project\\data.csv'
+Traceback (most recent call last):
+  File "C:\Users\harshitha\OneDrive\Desktop\CLV_Ml_Project\run.py", line 32, in <module>
+    raw_df = pd.read_csv(raw_data_path)
+  File "C:\Users\harshitha\OneDrive\Desktop\CLV_Ml_Project\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "C:\Users\harshitha\OneDrive\Desktop\CLV_Ml_Project\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "C:\Users\harshitha\OneDrive\Desktop\CLV_Ml_Project\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\harshitha\OneDrive\Desktop\CLV_Ml_Project\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ~~~~~~~~~~^
+        f,
+        ^^
+    ...<6 lines>...
+        storage_options=self.options.get("storage_options", None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\harshitha\OneDrive\Desktop\CLV_Ml_Project\.venv\Lib\site-packages\pandas\io\common.py", line 873, in get_handle
+    handle = open(
+        handle,
+    ...<3 lines>...
+        newline="",
+    )
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\harshitha\\OneDrive\\Desktop\\CLV_Ml_Project\\data.csv'
+[2025-08-24 21:55:58,648] INFO - Entered the data ingestion method or component
+[2025-08-24 21:55:58,655] INFO - Read the dataset as dataframe
+[2025-08-24 21:55:58,672] INFO - Train test split initiated
+[2025-08-24 21:55:58,683] INFO - Ingestion of the data is completed

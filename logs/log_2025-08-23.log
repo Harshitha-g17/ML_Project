@@ -1,0 +1,14 @@
+[2025-08-23 12:33:51,535] INFO - This is an info log from test_logger.py
+[2025-08-23 12:38:19,019] INFO - This is an info log from test_logger.py // hi this is harshitha,and you?
+[2025-08-23 13:10:36,238] INFO - Starting the division operation
+[2025-08-23 13:10:36,238] ERROR - An unexpected error occurred during division.
+[2025-08-23 13:10:36,239] ERROR - Error in C:\Users\harshitha\OneDrive\Desktop\CLV_Ml_Project\testing.py , line 7 : Custom Error Zero
+[2025-08-23 13:15:19,428] INFO - Starting the division operation
+[2025-08-23 13:15:19,429] INFO - Division 2 numbers
+[2025-08-23 13:15:47,870] INFO - Starting the division operation
+[2025-08-23 13:15:47,879] INFO - Division of 2 numbers
+[2025-08-23 16:24:14,735] INFO - Entered the data ingestion method or component
+[2025-08-23 16:25:33,587] INFO - Entered the data ingestion method or component
+[2025-08-23 16:25:33,595] INFO - Read the dataset as dataframe
+[2025-08-23 16:25:33,607] INFO - Train test split initiated
+[2025-08-23 16:25:33,622] INFO - Ingestion of the data is completed

@@ -3,9 +3,8 @@ import pandas as pd
 import random
 import time
 
-# --- A. CORE LOGIC (KEEP AS IS) ---
+# --- A. CORE LOGIC ---
 
-# Placeholder classes for CLV
 class CustomData:
     def __init__(self, customer_id, quantity, unit_price, country, invoice_month):
         self.customer_id = customer_id
@@ -32,6 +31,7 @@ def generate_recommendations(clv_value):
         return {
             "title": "Low-Value Customer",
             "emoji": "📉",
+            "color": "#e53e3e",  # Red
             "message": "This customer has a low predicted CLV. Focus on increasing their purchase frequency and basket size.",
             "actions": [
                 "🎁 Offer small discounts (e.g., 5-10% off) to encourage repeat purchases.",
@@ -43,6 +43,7 @@ def generate_recommendations(clv_value):
         return {
             "title": "Medium-Value Customer",
             "emoji": "📈",
+            "color": "#dd6b20",  # Orange
             "message": "This customer shows good potential. Nurture the relationship to turn them into a high-value asset.",
             "actions": [
                 "🎉 Provide loyalty rewards or points to strengthen customer relationship.",
@@ -54,6 +55,7 @@ def generate_recommendations(clv_value):
         return {
             "title": "High-Value (VIP) Customer",
             "emoji": "👑",
+            "color": "#38a169",  # Green
             "message": "This is a high-value customer. Focus on retention and delight to ensure they remain loyal.",
             "actions": [
                 "👑 Treat them as VIPs with exclusive offers and early access to new products.",
@@ -70,106 +72,109 @@ st.set_page_config(
     layout="wide",
 )
 
-# Custom CSS for a professional look
+# Custom CSS for a professional look with improved visibility
 st.markdown("""
 <style>
     /* Main container and text */
-    .st-emotion-cache-18ni7ap { /* This targets the Streamlit main container */
-        background-color: #0d1117;
-        color: #c9d1d9;
+    .st-emotion-cache-18ni7ap {
+        background-color: #f7fafc;
+        color: #2d3748;
     }
-    .st-emotion-cache-1av54b { /* This targets the sidebar */
-        background-color: #0d1117;
-        color: #c9d1d9;
+    .st-emotion-cache-1av54b {
+        background-color: #f7fafc;
+        color: #2d3748;
     }
     
-    /* Custom Header with animation */
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    /* Header styling */
     .main-header {
         font-size: 3.5em;
         font-weight: bold;
         text-align: center;
-        color: #00ffcc;
-        text-shadow: 2px 2px 8px #00aaff;
-        animation: fadeInDown 1s ease-out;
+        color: #4299e1;
+        text-shadow: none;
     }
     .subheader {
         text-align: center;
-        color: #8b949e;
-        font-size: 1.2em;
+        color: #718096;
+        font-size: 1.5em;
+        font-weight: bold;
     }
     
-    /* Input Form Styling */
+    /* Input Form Styling - Light gray background for contrast */
     .stForm {
         padding: 30px;
         border-radius: 15px;
-        background-color: #161b22;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        background-color: #e2e8f0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
     
-    /* Metric Cards Styling */
+    /* Metric Cards Styling with dynamic colors */
     [data-testid="stMetric"] {
-        background-color: #1f252b;
-        border-left: 5px solid #00aaff;
+        background-color: #ffffff;
+        border-left: 5px solid #4299e1;
         padding: 20px;
         border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     
-    /* Button Styling */
+    /* Button Styling - Muted blue */
     .stButton > button {
-        background-color: #00aaff;
+        background-color: #63b3ed;
         color: white;
         font-weight: bold;
+        font-size: 1.2em;
         border-radius: 8px;
         border: none;
         padding: 10px 20px;
-        transition: transform 0.2s ease-in-out;
     }
     .stButton > button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(0, 170, 255, 0.5);
+        background-color: #4299e1;
     }
     
-    /* Tab Styling */
+    /* Tab Styling - Corrected for better visibility */
     .stTabs [data-baseweb="tab-list"] {
         gap: 24px;
     }
     .stTabs [data-baseweb="tab"] {
         height: 50px;
         white-space: nowrap;
-        background-color: #1f252b;
+        background-color: #e2e8f0; /* Use a slightly darker background */
         border-radius: 8px 8px 0 0;
         gap: 12px;
         padding-top: 10px;
         padding-bottom: 10px;
-        transition: background-color 0.2s ease;
+        font-weight: bold;
+        font-size: 1.1em;
+        color: #2d3748; /* Make the text dark and clear */
     }
     .stTabs [aria-selected="true"] {
-        background-color: #00aaff;
+        background-color: #4299e1;
         color: white;
     }
     .stTabs [aria-selected="true"] > div > p {
         color: white;
         font-weight: bold;
     }
+
+    /* Info and other styled containers */
+    [data-testid="stText"] {
+        color: #2d3748;
+    }
+    .stAlert {
+        border-radius: 8px;
+    }
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown("<h1 class='main-header'>💰 CLV Predictor & Strategy Generator</h1>", unsafe_allow_html=True)
-st.markdown("<p class='subheader'>Estimate a customer's lifetime value and get actionable recommendations for your business.</p>", unsafe_allow_html=True)
+st.markdown("<h1 class='main-header'>💰 Customer Lifetime Value Predictor</h1>", unsafe_allow_html=True)
+st.markdown("<p class='subheader'>Predict CLV and get personalized business strategies.</p>", unsafe_allow_html=True)
 
-# --- C. MAIN APP LOGIC WITH TABS ---
-
-tab1, tab2 = st.tabs(["📊 Input & Predict", "📝 About the Model"])
+tab1, tab2 = st.tabs(["📊 Prediction", "📝 About"])
 
 with tab1:
     with st.container():
         st.subheader("Customer Details")
-        st.write("Please fill in the details below to predict the customer's lifetime value.")
+        st.info("Enter the information below to get a CLV prediction.")
 
         with st.form("clv_form", clear_on_submit=False):
             col1, col2 = st.columns(2)
@@ -188,16 +193,10 @@ with tab1:
 
     if submitted:
         if not customer_id or quantity <= 0 or unit_price <= 0:
-            st.error("❗ Please ensure 'Customer ID', 'Quantity', and 'Unit Price' are filled in with valid values.")
+            st.error("❗ Please ensure **Customer ID**, **Quantity**, and **Unit Price** are filled in with valid values.")
         else:
             with st.spinner('Predicting CLV...'):
-                # Progress bar for a smooth transition
-                progress_bar = st.progress(0)
-                for percent_complete in range(100):
-                    time.sleep(0.01)
-                    progress_bar.progress(percent_complete + 1)
-                progress_bar.empty()
-
+                time.sleep(1) # Simulating prediction time
                 data = CustomData(customer_id, quantity, unit_price, country, invoice_month)
                 pred_df = data.get_data_as_data_frame()
                 predict_pipeline = PredictPipeline()
@@ -206,18 +205,22 @@ with tab1:
 
             st.success("✅ Prediction complete!")
             
-            # Use columns to present results side-by-side
             col_metrics, col_recs = st.columns([1, 1])
 
             with col_metrics:
                 st.subheader("Prediction Summary")
-                st.metric(label=f"Predicted CLV for {customer_id}", value=f"${clv_value:,.2f}", delta=recs['emoji'])
-                
-                st.markdown(f"**Customer Type:** <span style='color: #00ffcc;'>{recs['title']}</span>", unsafe_allow_html=True)
+                st.metric(
+                    label=f"Predicted CLV for **{customer_id}**", 
+                    value=f"${clv_value:,.2f}", 
+                    delta=recs['emoji'],
+                    delta_color="off"
+                )
+                st.markdown(f"<p style='font-size: 1.2em; color: {recs['color']};'>**{recs['title']}**</p>", unsafe_allow_html=True)
                 st.info(recs['message'])
                 
             with col_recs:
                 st.subheader("Actionable Recommendations")
+                st.info("💡 Use these strategies to maximize customer value.")
                 st.markdown("---")
                 for action in recs['actions']:
                     st.markdown(f"- {action}")
